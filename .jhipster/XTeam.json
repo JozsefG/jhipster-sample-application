@@ -1,0 +1,36 @@
+{
+    "name": "XTeam",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "organization",
+            "otherEntityName": "organization",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "xgroup",
+            "otherEntityName": "xGroup",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "xteam"
+        }
+    ],
+    "changelogDate": "20180730235422",
+    "entityTableName": "x_team",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

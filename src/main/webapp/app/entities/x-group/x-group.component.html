@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span>X Groups</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-x-group" [routerLink]="['/x-group/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new X Group
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="xGroups">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>X Team</span></th>
+            <th><span>Xteam</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let xGroup of xGroups ;trackBy: trackId">
+                <td><a [routerLink]="['/x-group', xGroup.id, 'view' ]">{{xGroup.id}}</a></td>
+                <td>{{xGroup.name}}</td>
+                <td>
+                    <div *ngIf="xGroup.xTeam">
+                        <a [routerLink]="['../x-team', xGroup.xTeam?.id, 'view' ]" >{{xGroup.xTeam?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let xteam of xGroup.xteams; let last = last">
+                            <a class="form-control-static" [routerLink]="['../x-team', xteam?.id, 'view' ]">{{xteam.name}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/x-group', xGroup.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/x-group', xGroup.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'x-group/'+ xGroup.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
