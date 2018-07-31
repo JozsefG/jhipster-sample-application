@@ -1,0 +1,30 @@
+{
+    "name": "XUser",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "xgroup",
+            "otherEntityName": "xGroup",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "xuser"
+        }
+    ],
+    "changelogDate": "20180731000124",
+    "entityTableName": "x_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

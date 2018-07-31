@@ -1,0 +1,26 @@
+// an ignored comment
+/** not an ignored comment */
+entity Organization {
+	name String required,
+}
+
+entity XTeam {
+	name String required
+}
+
+entity XGroup {
+	name String required
+}
+
+entity XUser {
+	name String required
+}
+
+relationship ManyToOne {
+	XTeam{Organization} to Organization
+    XGroup{XTeam} to XTeam
+}
+
+relationship ManyToMany {
+	XGroup{xuser(name)} to XUser{xgroup}
+}
