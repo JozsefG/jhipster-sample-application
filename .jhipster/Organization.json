@@ -1,0 +1,30 @@
+{
+    "name": "Organization",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "otherEntityRelationshipName": "organization"
+        }
+    ],
+    "changelogDate": "20180802155209",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "organization",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

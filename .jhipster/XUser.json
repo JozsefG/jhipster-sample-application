@@ -1,0 +1,43 @@
+{
+    "name": "XUser",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "group",
+            "otherEntityName": "xGroup",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "user"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "role",
+            "otherEntityName": "role",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "user"
+        }
+    ],
+    "changelogDate": "20180802155212",
+    "entityTableName": "x_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
